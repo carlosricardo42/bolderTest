@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :first_name
       t.string :last_name
-      t.string :role
+      t.string :role,  default: 'writer'
 
       t.timestamps null: false
     end
