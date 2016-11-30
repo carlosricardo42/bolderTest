@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+  after_action :verify_authorized
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
+    authorize Article
   end
 
   # GET /articles/1
@@ -14,17 +16,22 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = current_user.articles.build
   end
 
   # GET /articles/1/edit
   def edit
+    puts "prueba autorizacion ----------------"
+    @article = Article.find(params[:id])
+    authorize @article
+    puts "aqui mamando -------------------------"
+
   end
 
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
 
     respond_to do |format|
       if @article.save
@@ -54,7 +61,9 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
+    article = Article.find(params[:id])
+    authorize article
+    article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
@@ -65,6 +74,7 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+      authorize @article
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
