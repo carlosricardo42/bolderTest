@@ -157,7 +157,7 @@ aside {
   }
 }
 
-.card-text {
+.short-text {
    overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
@@ -165,6 +165,14 @@ aside {
    max-height: 32px;      /* fallback */
    -webkit-line-clamp: 2; /* number of lines to show */
    -webkit-box-orient: vertical;
+}
+
+.link{
+  color: #107DD0;
+}
+
+.link:visited {
+    color: #4F095C;
 }
 
 #session_remember_me {
