@@ -17,22 +17,18 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = current_user.articles.build
+    authorize @article
   end
 
   # GET /articles/1/edit
   def edit
-    puts "prueba autorizacion ----------------"
-    @article = Article.find(params[:id])
-    authorize @article
-    puts "aqui mamando -------------------------"
-
   end
 
   # POST /articles
   # POST /articles.json
   def create
     @article = current_user.articles.build(article_params)
-
+    authorize @article
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -61,9 +57,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    article = Article.find(params[:id])
-    authorize article
-    article.destroy
+    @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }

@@ -4,7 +4,6 @@ class ArticlePolicy < ApplicationPolicy
   def initialize(current_user, model)
     @current_user = current_user
     @article = model
-
   end
 
    def index?
@@ -18,6 +17,14 @@ class ArticlePolicy < ApplicationPolicy
    def destroy?
      return false if @current_user == @article.user
      @current_user.admin?
+   end
+
+   def new?
+      @current_user.admin? or @current_user.writter?
+   end
+
+   def create?
+      @current_user.admin? or @current_user.writter?
    end
 
    def update?
