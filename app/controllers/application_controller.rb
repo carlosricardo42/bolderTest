@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
   def user_not_authorized
      redirect_to(request.referrer || root_path, notice: 'You are not authorized to perform this action.')
   end

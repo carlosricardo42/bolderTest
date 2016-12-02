@@ -54,7 +54,7 @@ module ArticlesHelper
       concat(article.updated_at)
     end)
   end)
-  ende
+  end
 }.join().html_safe
 end
 html
