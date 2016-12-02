@@ -20,11 +20,11 @@ class ArticlePolicy < ApplicationPolicy
    end
 
    def new?
-      @current_user.admin? or @current_user.writter?
+      @current_user.admin? or @current_user.writer?
    end
 
    def create?
-      @current_user.admin? or @current_user.writter?
+      @current_user.admin? or @current_user.writer?
    end
 
    def update?

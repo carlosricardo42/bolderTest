@@ -7,13 +7,13 @@ class User < ActiveRecord::Base
   has_many :articles, dependent: :destroy
   validates :first_name, :last_name,   presence: true
   after_initialize :set_default_role, if: :new_record?
-  royce_roles %w[writter admin ]
+  royce_roles %w[writer admin ]
 #  scope :my_articles, joins(:articles).where('.user_id = ?', self.id)
   def set_default_role
     if self.admin?
        self.admin!
     else
-      self.writter!
+      self.writer!
     end
   end
 end
