@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name,   presence: true
   after_initialize :set_default_role, if: :new_record?
   royce_roles %w[writter admin ]
-
+#  scope :my_articles, joins(:articles).where('.user_id = ?', self.id)
   def set_default_role
     if self.admin?
        self.admin!

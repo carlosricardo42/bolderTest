@@ -23,7 +23,7 @@ pre {
 
 /* line 21, /home/oem/workspace/bolderTest/app/assets/stylesheets/scaffolds.scss */
 a {
-  color: #000;
+  color: #0080FF;
 }
 /* line 24, /home/oem/workspace/bolderTest/app/assets/stylesheets/scaffolds.scss */
 a:visited {
@@ -32,7 +32,7 @@ a:visited {
 /* line 28, /home/oem/workspace/bolderTest/app/assets/stylesheets/scaffolds.scss */
 a:hover {
   color: #fff;
-  background-color: #000;
+  background-color: #fff;
 }
 
 /* line 35, /home/oem/workspace/bolderTest/app/assets/stylesheets/scaffolds.scss */
@@ -9036,7 +9036,7 @@ aside section h1 {
 }
 
 /* line 160, /home/oem/workspace/bolderTest/app/assets/stylesheets/style.scss */
-.card-text {
+.short-text {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -9050,6 +9050,16 @@ aside section h1 {
 }
 
 /* line 170, /home/oem/workspace/bolderTest/app/assets/stylesheets/style.scss */
+.link {
+  color: #107DD0;
+}
+
+/* line 174, /home/oem/workspace/bolderTest/app/assets/stylesheets/style.scss */
+.link:visited {
+  color: #4F095C;
+}
+
+/* line 178, /home/oem/workspace/bolderTest/app/assets/stylesheets/style.scss */
 #session_remember_me {
   width: auto;
   margin-left: 0;
