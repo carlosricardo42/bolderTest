@@ -15,7 +15,6 @@ class ArticlePolicy < ApplicationPolicy
    end
 
    def destroy?
-     return false if @current_user == @article.user
      @current_user.admin?
    end
 
